@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Random-Quotes
 To build a random quote generator using an API
 
@@ -13,5 +12,3 @@ The goal of this project was to learn about Javascript and using API's with java
 * Javascript
 * Forismatic API
 =======
-# random-quotes
->>>>>>> dc0511eb899322383bbf6c9d4e207f3f656e2aee
