@@ -23,28 +23,30 @@ async function getQuote()
 {
 	loading();
 
-	const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-	const apiUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
+	//const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+	//const apiUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
+	const apiUrl = 'https://freequote.herokuapp.com';
 	try {
-		const response = await fetch(proxyUrl+ apiUrl);
-		//const response = await fetch(apiUrl);
+		//const response = await fetch(proxyUrl+ apiUrl);
+		const response = await fetch(apiUrl);
 		const data = await response.json();
-		console.log(data);
+		//console.log(data);
+		
 		//if Author is blank, add 'Unknown'
-		if (data.quoteAuthor == '') {
+		if (data.author == '') {
 			authorText.innerText = 'Unknown';
 		} else {
-			authorText.innerText = data.quoteAuthor;
+			authorText.innerText = data.author;
 		}
 
 		// Reduce font size for long quotes
-		if (data.quoteText.length > 120)
+		if (data.quote.length > 120)
 		{
 			quoteText.classList.add('long-quote');
 		} else {
 			quoteText.classList.remove('long-quote');
 		}
-		quoteText.innerText = data.quoteText;
+		quoteText.innerText = data.quote;
 
 		//Stop Loader, show quote
 		complete();
